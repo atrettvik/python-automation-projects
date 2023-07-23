@@ -7,14 +7,14 @@ SAVED_DATA = "clipboard.json"
 
 
 def save_data(filepath, data):
-    with open(filepath, "w") as f:
+    with open(filepath, "a") as f:
         json.dump(data, f)
-        
+        f.write("\n")
 
 def load_data(filepath):
     try:
         with open(filepath, "r") as f:
-            data = json.load(f)
+            data = [json.load(line.strip()) for line in f if line.strip()]
             return data
     except:
         return{}
@@ -39,6 +39,7 @@ if len(sys.argv) == 2:
             print("Data copied to clipboard")
         else:
             print("Key does not exist.")
+            
     elif command == "list":
         print("LIST")
     else:
