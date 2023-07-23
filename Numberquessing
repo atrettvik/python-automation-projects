@@ -21,8 +21,8 @@ guesses = 0
 while True:
     guesses += 1
     user_guess = input(" Guess any number between 1 and the number of your choice: ")
-    if user_guess.isdigit():   
-         user_guess = int(user_guess)
+    if user_guess.isdigit():
+        user_guess = int(user_guess)
     else:
         print("Please type a number next time.")
         continue

@@ -11,7 +11,7 @@ while True:
     user_input = input("Type in Rock/Paper/Scissors, Q to quit at anytime: ").lower()
     if user_input == "q":
         break
-    
+
     if user_input not in options:
         continue
 
@@ -22,7 +22,7 @@ while True:
 
     if user_input == computer_pick:
         print("It's a tie!")
-        
+
     elif (
         (user_input == "rock" and computer_pick == "scissors")
         or (user_input == "paper" and computer_pick == "rock")
