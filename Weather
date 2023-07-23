@@ -4,21 +4,22 @@ import requests
 API_KEY = "8736acc3f7817b664da33b6fe07c4191"
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
-
-city = input("Enter a vity name: ")
-request_url = f"{BASE_URL}?appid={API_KEY}&q={city}"
-response = requests.get(request_url)
-
-if response.status_code == 200:
-    data = response.json()
-    weather =  data["weather"][0]["description"]
-    temperatur = round(data["main"]["temp"] - 273.15, 1)
-    wind_speed = data["wind"]["speed"]
+while True:
+    city = input("(Q to quit) Enter a vity name: ")
+    if city.lower() == "q":
+        break
     
-    print("Weather:", weather)
-    print("Temperatur:", temperatur, "°C")
-    print("wind:", wind_speed, "m/s")
-    
+    request_url = f"{BASE_URL}?appid={API_KEY}&q={city}"
+    response = requests.get(request_url)
 
-else:
-    print("an error occured.")
+    if response.status_code == 200:
+        data = response.json()
+        weather =  data["weather"][0]["description"]
+        temperatur = round(data["main"]["temp"] - 273.15, 1)
+        wind_speed = data["wind"]["speed"]
+        
+        print("Weather:", weather)
+        print("Temperatur:", temperatur, "°C")
+        print("wind:", wind_speed, "m/s")
+    else:
+        print("an error occured.")
