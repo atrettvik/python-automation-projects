@@ -11,7 +11,14 @@ response = requests.get(request_url)
 
 if response.status_code == 200:
     data = response.json()
-    print(data)
+    weather =  data["weather"][0]["description"]
+    temperatur = round(data["main"]["temp"] - 273.15, 1)
+    wind_speed = data["windo"]["speed"]
+    
+    print("Weather:", weather)
+    print("Temperatur:", temperatur, "°C")
+    print("wind:", wind_speed, "m/s")
+    
 
 else:
     print("an error occured.")
