@@ -1,5 +1,17 @@
-import request
 
+import requests
 
 API_KEY = "8736acc3f7817b664da33b6fe07c4191"
+BASE_URL = "http://api.openweathermap.org/data2.5/weather"
 
+
+city = input("Enter a vity name: ")
+request_url = f"{BASE_URL}?appid={API_KEY}&q={city}"
+response = requests.get(request_url)
+
+if response.status_code == 200:
+    data = response.json()
+    print(data)
+
+else:
+    print("an error occured.")
