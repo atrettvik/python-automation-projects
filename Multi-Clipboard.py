@@ -5,23 +5,19 @@ import json
 SAVED_DATA = "clipboard.json"
 
 
-
 def save_data(filepath, data):
-    with open(filepath, "a") as f:
+    with open(filepath, "w") as f:
         json.dump(data, f)
-        f.write("\n")
+        
 
 def load_data(filepath):
     try:
         with open(filepath, "r") as f:
-            data = [json.load(line.strip()) for line in f if line.strip()]
+            data = json.load(f)
             return data
     except:
         return{}
     
-
-save_data("clipboard.json",{"key": "value"})
-
 
 if len(sys.argv) == 2:
     command = sys.argv[1]
