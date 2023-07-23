@@ -1,0 +1,9 @@
+import time
+import random
+
+LIST = ["Hello", "Hei", "Halla"]
+
+while True:
+    random_phrase = random.choice(LIST)
+    print(random_phrase)
+    time.sleep(0.2)
