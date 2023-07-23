@@ -13,7 +13,7 @@ if response.status_code == 200:
     data = response.json()
     weather =  data["weather"][0]["description"]
     temperatur = round(data["main"]["temp"] - 273.15, 1)
-    wind_speed = data["windo"]["speed"]
+    wind_speed = data["wind"]["speed"]
     
     print("Weather:", weather)
     print("Temperatur:", temperatur, "°C")
